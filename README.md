@@ -60,6 +60,7 @@ Overview of docker run parameters
 
 * Both Team Fortress 2 server and Splunk Forwarder are run as the same (non-root) user
 * Checks for Team Fortress 2 server updates on container start up and every 5 minutes
+* when configured to send data to Splunk in default mode (training) a constant stream of events will be sent to the Splunk Server due to AI bots fighting
 
 # Other links
 
