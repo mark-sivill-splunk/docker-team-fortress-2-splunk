@@ -63,3 +63,4 @@ Overview of docker run parameters
 - https://linuxgsm.com/ - ease Team Fortress 2 server set up
 - https://store.steampowered.com/app/440/Team_Fortress_2/ - setting up Team Fortress 2 client in Steam
 - https://docs.splunk.com/Documentation/Forwarder/latest/Forwarder/Abouttheuniversalforwarder - documentation on setting up Splunk Forwarder
+- https://splunkbase.splunk.com/app/1605/ - Splunk app (for Splunk Server) that works against data created by Team Fortress
