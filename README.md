@@ -51,6 +51,10 @@ Overview of docker run parameters
 
 - defining everything (requiring pre-baked forwarder app)
   - ```docker run -p 27015:27015/udp -p 27015:27015 -p 9997:9997 -e TEAM_FORTRESS_2_CONFIG=<tf2_config> -e TEAM_FORTRESS_2_SV_PASSWORD=<player_password> -e TEAM_FORTRESS_2_RCON_PASSWORD=<admin_password> -e SPLUNK_FORWARDER_INDEX=<index> -e SPLUNK_FORWARDER_SOURCETYPE=<source> -e SPLUNK_FORWARDER_HOST=<host> <image_id>```
+  
+
+- defining everything (not requiring pre-baked forwarder app)
+  - ```docker run -p 27015:27015/udp -p 27015:27015 -p 9997:9997 -e TEAM_FORTRESS_2_CONFIG=<tf2_config> -e TEAM_FORTRESS_2_SV_PASSWORD=<player_password> -e TEAM_FORTRESS_2_RCON_PASSWORD=<admin_password> -e SPLUNK_FORWARDER_INDEX=<index> -e SPLUNK_FORWARDER_SOURCETYPE=<source> -e SPLUNK_FORWARDER_HOST=<host> -e SPLUNK_FORWARDER_SERVER_PORT=<server_port> <image_id>```
 
 # Notes
 
