@@ -1,26 +1,23 @@
 # docker-team-fortress-2-splunk
 Build a docker image of a Team Fortress 2 server that can optionally send data to a external Splunk Server using a Splunk Forwarder
 
-Notes
-=====
+# Notes
 
 * Both TF2 and Splunk Forwarder are run as the same (non-root) user
 * Checks for TF2 updates on container start up and every 5 minutes
 
-To Build
-========
+# To Build
 
-```docker build .```
+Run ```docker build .``` in the same directory as the Dockerfile.
 
 Optionally a Splunk Forwarder app can be baked into the docker image by updating the contents of ./files/splunk/tf2_forwarder_app
 This is useful when more complex forwarder configurations are required for example including certificates ( if using certificates ensure the correct path names are defined in outputs.conf )
 
-To Run
-======
+# To Run
 
 Overview of docker run parameters
 
-- ```-p 27015:27015/udp  =>``` required for team fortress 2 game clients to connect team fortress 2 server
+- ```-p 27015:27015/udp``` => required for team fortress 2 game clients to connect team fortress 2 server
 - ```-e TEAM_FORTRESS_2_CONFIG=<tf2_config>``` => setting the default game mode. Current modes are casual, tournament, training (training is default)
 - ```-e TEAM_FORTRESS_2_SV_PASSWORD=<player_password>``` => password for team fortress 2 game clients to connect to team fortress 2 server. By default no password is required
 - ```-p 27015:27015``` => required for team fortress 2 admin access to server
@@ -31,8 +28,7 @@ Overview of docker run parameters
 - ```-e SPLUNK_FORWARDER_HOST=<host>``` => required to send data to Splunk, the forwarder that data is written to in Splunk
 - ```-e SPLUNK_FORWARDER_SERVER_PORT=<server_port>``` => required to send data to Splunk if not baked into Splunk Forwarder app
   
-Run Examples
-============
+## Run Examples
 
 - start team fortress 2 without sending data to Splunk
   - ```docker run -p 27015:27015/udp <image_id>```
@@ -54,3 +50,9 @@ Run Examples
 
 - defining everything (requiring pre-baked forwarder app)
   - ```docker run -p 27015:27015/udp -p 27015:27015 -p 9997:9997 -e TEAM_FORTRESS_2_CONFIG=<tf2_config> -e TEAM_FORTRESS_2_SV_PASSWORD=<player_password> -e TEAM_FORTRESS_2_RCON_PASSWORD=<admin_password> -e SPLUNK_FORWARDER_INDEX=<index> -e SPLUNK_FORWARDER_SOURCETYPE=<source> -e SPLUNK_FORWARDER_HOST=<host> <image_id>```
+
+# Other links
+
+- https://linuxgsm.com/
+- https://store.steampowered.com/app/440/Team_Fortress_2/
+- https://docs.splunk.com/Documentation/Forwarder/latest/Forwarder/Abouttheuniversalforwarder
