@@ -18,12 +18,12 @@ This is useful when more complex forwarder configurations are required for examp
 
 Overview of docker run parameters
 
-- ```-p 27015:27015/udp``` => required for team fortress 2 game clients to connect team fortress 2 server
+- ```-p 27015:27015/udp``` => required for Team Fortress 2 game clients to connect team fortress 2 server
 - ```-e TEAM_FORTRESS_2_CONFIG=<tf2_config>``` => setting the default game mode. Current modes are casual, tournament, training (training is default)
-- ```-e TEAM_FORTRESS_2_SV_PASSWORD=<player_password>``` => password for team fortress 2 game clients to connect to team fortress 2 server. By default no password is required
-- ```-p 27015:27015``` => required for team fortress 2 admin access to server
-- ```-e TEAM_FORTRESS_2_RCON_PASSWORD=<admin_password>``` => team fortress 2 admin password
-- ```-p 9997:9997``` => required so data can be sent to Splunk server
+- ```-e TEAM_FORTRESS_2_SV_PASSWORD=<player_password>``` => password for Team Fortress 2 game clients to connect to team fortress 2 server. By default no password is required
+- ```-p 27015:27015``` => required for Team Fortress 2 admin access to server
+- ```-e TEAM_FORTRESS_2_RCON_PASSWORD=<admin_password>``` => Team Fortress 2 admin password for RCON console
+- ```-p 9997:9997``` => required so data can be sent to Splunk server from docker image
 - ```-e SPLUNK_FORWARDER_INDEX=<index>``` => required to send data to Splunk, the index that data is written to in Splunk
 - ```-e SPLUNK_FORWARDER_SOURCETYPE=<source>``` => required to send data to Splunk, the sourcetype that data is written to in Splunk 
 - ```-e SPLUNK_FORWARDER_HOST=<host>``` => required to send data to Splunk, the forwarder that data is written to in Splunk
@@ -54,8 +54,8 @@ Overview of docker run parameters
 
 # Notes
 
-* Both TF2 server and Splunk Forwarder are run as the same (non-root) user
-* Checks for TF2 server updates on container start up and every 5 minutes
+* Both Team Fortress 2 server and Splunk Forwarder are run as the same (non-root) user
+* Checks for Team Fortress 2 server updates on container start up and every 5 minutes
 
 # Other links
 
@@ -63,4 +63,4 @@ Overview of docker run parameters
 - https://linuxgsm.com/ - ease Team Fortress 2 server set up
 - https://store.steampowered.com/app/440/Team_Fortress_2/ - setting up Team Fortress 2 client in Steam
 - https://docs.splunk.com/Documentation/Forwarder/latest/Forwarder/Abouttheuniversalforwarder - documentation on setting up Splunk Forwarder
-- https://splunkbase.splunk.com/app/1605/ - Splunk app (for Splunk Server) that works against data created by Team Fortress
+- https://splunkbase.splunk.com/app/1605/ - Splunk app (for Splunk Server) that works against data created by Team Fortress 2
