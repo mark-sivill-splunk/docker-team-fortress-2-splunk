@@ -27,7 +27,7 @@ Overview of docker run parameters
 - ```-e SPLUNK_FORWARDER_INDEX=<index>``` => required to send data to Splunk, the index that data is written to in Splunk
 - ```-e SPLUNK_FORWARDER_SOURCETYPE=<source>``` => required to send data to Splunk, the sourcetype that data is written to in Splunk 
 - ```-e SPLUNK_FORWARDER_HOST=<host>``` => required to send data to Splunk, the forwarder that data is written to in Splunk
-- ```-e SPLUNK_FORWARDER_SERVER_PORT=<server_port>``` => required to send data to Splunk if not baked into Splunk Forwarder app
+- ```-e SPLUNK_FORWARDER_SERVER_PORT=<server_port>``` => required to send data to Splunk if not baked into Splunk Forwarder app. It will be in the format of splunk.example.com:9997
   
 ## Run Examples
 
