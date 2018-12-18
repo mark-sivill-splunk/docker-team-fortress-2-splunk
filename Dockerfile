@@ -144,9 +144,11 @@ RUN chown $TF2_USER:$TF2_USER $TF2_HOME/start.sh \
 
 
 USER $TF2_USER
+# ensure start script can be executed
 # create default tf2 config
 # compile superlogs mod
-RUN cp $TF2_HOME/serverfiles/tf/cfg/tf2server_training.cfg $TF2_HOME/serverfiles/tf/cfg/tf2server.cfg \
+RUN chmod +x $TF2_HOME/start.sh \
+  && cp $TF2_HOME/serverfiles/tf/cfg/tf2server_training.cfg $TF2_HOME/serverfiles/tf/cfg/tf2server.cfg \
   && $TF2_HOME/serverfiles/tf/addons/sourcemod/scripting/compile.sh \
   && mv $TF2_HOME/serverfiles/tf/addons/sourcemod/scripting/compiled/superlogs-tf2.smx $TF2_HOME/serverfiles/tf/addons/sourcemod/plugins \
   && rm -r $TF2_HOME/serverfiles/tf/addons/sourcemod/scripting/compiled
@@ -160,10 +162,6 @@ RUN cp $TF2_HOME/serverfiles/tf/cfg/tf2server_training.cfg $TF2_HOME/serverfiles
 #RUN ls -al $SPLUNK_HOME/etc/apps/tf2_forwarder_app/
 #RUN ls -al $SPLUNK_HOME/etc/apps/tf2_forwarder_app/default
 #RUN ls -al $SPLUNK_HOME/etc/apps/tf2_forwarder_app/local
+#RUN ls -al $TF2_HOME
 
 ENTRYPOINT ["./start.sh"]
-
-
-
-
-
