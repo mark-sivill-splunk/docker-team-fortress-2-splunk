@@ -21,14 +21,6 @@
 
     echo "***** Not setting up local outputs for Splunk Forwarder"
 
-    if [ ! -f $SPLUNK_HOME/etc/apps/tf2_forwarder_app/default/outputs.conf ] && [ ! -f $SPLUNK_HOME/etc/apps/tf2_forwarder_app/local/outputs.conf ]
-    then
-
-      echo "***** File /default/outputs.conf or /local/outputs.conf not defined for Splunk Forwarder"
-      exit 1
-
-    fi
-
   else
 
     echo "***** Setting up local outputs for Splunk Forwarder"
@@ -44,12 +36,26 @@
   fi
 
   #
-  # if correct values provided then start splunk forwarder
+  # record if there is a valid outputs.conf
   #
-  if [ -z ${SPLUNK_FORWARDER_INDEX+x} ] || [ -z ${SPLUNK_FORWARDER_SOURCETYPE+x} ] || [ -z ${SPLUNK_FORWARDER_HOST+x} ]
+  if [ ! -f $SPLUNK_HOME/etc/apps/tf2_forwarder_app/default/outputs.conf ] && [ ! -f $SPLUNK_HOME/etc/apps/tf2_forwarder_app/local/outputs.conf ]
   then
 
-    echo "***** Not all Inputs are defined for Splunk Forwarder, so not starting Forwarder"
+    echo "***** File /default/outputs.conf or /local/outputs.conf not defined for Splunk Forwarder"
+
+  else
+
+    export SPLUNK_FORWARDER_OUTPUTS_DEFINED = true
+
+  fi
+
+  #
+  # if correct values provided then start splunk forwarder
+  #
+  if [ -z ${SPLUNK_FORWARDER_INDEX+x} ] || [ -z ${SPLUNK_FORWARDER_SOURCETYPE+x} ] || [ -z ${SPLUNK_FORWARDER_HOST+x} || [ -z ${SPLUNK_FORWARDER_OUTPUTS_DEFINED+x} ]
+  then
+
+    echo "***** Not all inputs/outputs are defined for Splunk Forwarder, so not starting Forwarder"
 
   else
 
@@ -149,6 +155,7 @@
   fi
 
   # check for team fortress 2 updates
+  echo "***** Team Fortress 2 checking for update"
   ./tf2server update
 
   # check for team fortress 2 mod updates (runs regardless of up to date or not)
@@ -156,6 +163,8 @@
 
   # start team fortress 2
   ./tf2server start
+
+  echo "***** Team Fortress 2 now running"
 
   # debugging if needed - list environment variables
   # env
@@ -189,11 +198,15 @@
 
   # forever loop to stop script from exiting and therefore stopping docker
   # loop to check for a tf2 updates
+
+  echo "***** Team Fortress 2 now periodically checking for updates"
+
   while [ 1 ]
   do
     sleep 5m
     ./tf2server update
   done
+
 
 
 
