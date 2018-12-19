@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  tf2-splunk:
+    build: https://github.com/mark-sivill-splunk/docker-team-fortress-2-splunk.git
+    ports:
+      - "27015:27015/udp"
+      - "27015:27015"
+      - "9997:9997"
+    environment:
+      - TEAM_FORTRESS_2_CONFIG
+      - TEAM_FORTRESS_2_SV_PASSWORD
+      - TEAM_FORTRESS_2_RCON_PASSWORD
+      - SPLUNK_FORWARDER_INDEX
+      - SPLUNK_FORWARDER_SOURCETYPE
+      - SPLUNK_FORWARDER_HOST
+      - SPLUNK_FORWARDER_SERVER_PORT
