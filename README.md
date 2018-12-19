@@ -58,7 +58,7 @@ Overview of docker run parameters
 
 # Alternative build and run
 
-Run ```docker-compose up``` against the docker-compose.yml file to create a build directly from this GitHub listing. Running ```docker-compose down``` will stop the running docker image. Arguments can be passed in as before.
+Run ```docker-compose up``` against the docker-compose.yml file to create a running build directly from this GitHub listing. Running ```docker-compose down``` will stop the running docker image. Arguments can be passed in as before.
 
 # Notes
 
