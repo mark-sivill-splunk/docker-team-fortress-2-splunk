@@ -58,7 +58,9 @@ Overview of docker run parameters
 
 # Alternative build and run
 
-Run ```docker-compose up``` against the docker-compose.yml file to create a running build directly from this GitHub listing. Running ```docker-compose down``` will stop the running docker image. Arguments can be passed in as before.
+Run ```docker-compose up``` against the docker-compose.yml file to create a running build directly from this GitHub listing. Running ```docker-compose down``` will stop the running docker image.
+
+Arguments can be passed in a similar fashion to the docker run command, ```docker-compose run  -e SPLUNK_FORWARDER_INDEX=<index> -e SPLUNK_FORWARDER_SOURCETYPE=<source> -e SPLUNK_FORWARDER_HOST=<host> -e SPLUNK_FORWARDER_SERVER_PORT=<server_port> tf2-splunk```
 
 # Notes
 
