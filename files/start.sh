@@ -45,14 +45,15 @@
 
   else
 
-    export SPLUNK_FORWARDER_OUTPUTS_DEFINED = true
+    SPLUNK_FORWARDER_OUTPUTS_DEFINED=true
+    export SPLUNK_FORWARDER_OUTPUTS_DEFINED 
 
   fi
 
   #
   # if correct values provided then start splunk forwarder
   #
-  if [ -z ${SPLUNK_FORWARDER_INDEX+x} ] || [ -z ${SPLUNK_FORWARDER_SOURCETYPE+x} ] || [ -z ${SPLUNK_FORWARDER_HOST+x} || [ -z ${SPLUNK_FORWARDER_OUTPUTS_DEFINED+x} ]
+  if [ -z ${SPLUNK_FORWARDER_INDEX+x} ] || [ -z ${SPLUNK_FORWARDER_SOURCETYPE+x} ] || [ -z ${SPLUNK_FORWARDER_HOST+x} ] || [ -z ${SPLUNK_FORWARDER_OUTPUTS_DEFINED+x} ]
   then
 
     echo "***** Not all inputs/outputs are defined for Splunk Forwarder, so not starting Forwarder"
@@ -206,8 +207,4 @@
     sleep 5m
     ./tf2server update
   done
-
-
-
-
 
