@@ -56,11 +56,12 @@ Overview of docker run parameters
 - defining everything (not requiring pre-baked forwarder app)
   - ```docker run -p 27015:27015/udp -p 27015:27015 -p 9997:9997 -e TEAM_FORTRESS_2_CONFIG=<tf2_config> -e TEAM_FORTRESS_2_SV_PASSWORD=<player_password> -e TEAM_FORTRESS_2_RCON_PASSWORD=<admin_password> -e SPLUNK_FORWARDER_INDEX=<index> -e SPLUNK_FORWARDER_SOURCETYPE=<source> -e SPLUNK_FORWARDER_HOST=<host> -e SPLUNK_FORWARDER_SERVER_PORT=<server_port> <image_id>```
 
-# Alternative build and run
+# Alternative build
 
-Run ```docker-compose up``` against the docker-compose.yml file to create a running build directly from this GitHub listing. Running ```docker-compose down``` will stop the running docker image.
+Run ```docker-compose build``` against the docker-compose.yml file to create a docker image build directly from this GitHub listing. 
+Run ```docker images``` to get the name / image_id of the docker image built.
 
-Arguments can be passed in a similar fashion to the docker run command, ```docker-compose run  -e SPLUNK_FORWARDER_INDEX=<index> -e SPLUNK_FORWARDER_SOURCETYPE=<source> -e SPLUNK_FORWARDER_HOST=<host> -e SPLUNK_FORWARDER_SERVER_PORT=<server_port> tf2-splunk```
+Then use the ```docker run``` as described above to run the docker image
 
 # Notes
 
