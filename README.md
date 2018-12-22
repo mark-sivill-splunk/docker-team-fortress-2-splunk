@@ -58,10 +58,11 @@ Overview of docker run parameters
 
 # Alternative build
 
-Run ```docker-compose build``` against the docker-compose.yml file to create a docker image build directly from this GitHub listing. 
+Run ```docker-compose build``` against the ```docker-compose.yml``` file to create a docker image build directly from this GitHub listing. 
+
 Run ```docker images``` to get the name / image_id of the docker image built.
 
-Then use the ```docker run``` as described above to run the docker image
+Then use the ```docker run``` command as described above to run the docker image.
 
 # Notes
 
