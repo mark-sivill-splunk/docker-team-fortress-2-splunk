@@ -133,11 +133,13 @@ USER root
 COPY ./files/start.sh $TF2_HOME/start.sh
 COPY ./files/linuxgsm/common.cfg $TF2_HOME/lgsm/config-lgsm/tf2server/common.cfg
 COPY ./files/team_fortress_2/config/*.cfg $TF2_HOME/serverfiles/tf/cfg/
+COPY ./files/team_fortress_2/config/*.txt $TF2_HOME/serverfiles/tf/cfg/
 COPY ./files/team_fortress_2/mods/superlogs/loghelper.inc $TF2_HOME/serverfiles/tf/addons/sourcemod/scripting/include/loghelper.inc
 COPY ./files/team_fortress_2/mods/superlogs/superlogs-tf2.sp $TF2_HOME/serverfiles/tf/addons/sourcemod/scripting/superlogs-tf2.sp
 RUN chown $TF2_USER:$TF2_USER $TF2_HOME/start.sh \
   && chown $TF2_USER:$TF2_USER $TF2_HOME/lgsm/config-lgsm/tf2server/common.cfg \
   && chown $TF2_USER:$TF2_USER $TF2_HOME/serverfiles/tf/cfg/*.cfg \
+  && chown $TF2_USER:$TF2_USER $TF2_HOME/serverfiles/tf/cfg/*.txt \
   && chown $TF2_USER:$TF2_USER $TF2_HOME/serverfiles/tf/addons/sourcemod/scripting/include/loghelper.inc \
   && chown $TF2_USER:$TF2_USER $TF2_HOME/serverfiles/tf/addons/sourcemod/scripting/superlogs-tf2.sp \
   && echo "rcon_password \"`head /dev/urandom | tr -cd 'a-zA-Z' | head -c 32`\"\nsv_password \"`head /dev/urandom | tr -cd 'a-zA-Z' | head -c 32`\"\n" > $TF2_HOME/serverfiles/tf/cfg/passwords.cfg

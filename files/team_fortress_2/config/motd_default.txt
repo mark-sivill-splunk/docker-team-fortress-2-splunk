@@ -1,0 +1,5 @@
+Welcome to Team Fortress 2
+
+Data from the game can optionally be sent to Splunk for analysis
+
+Details around the game configuration can be found at https://github.com/mark-sivill-splunk/docker-team-fortress-2-splunk
