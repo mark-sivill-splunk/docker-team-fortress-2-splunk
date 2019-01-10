@@ -1,0 +1,14 @@
+//
+// stripped koth back maps to official bot supported maps according to
+// http://wiki.teamfortress.com/wiki/Bots
+
+//
+// koth bot supported
+//
+
+koth_badlands
+koth_lakeside_final
+koth_nucleus
+koth_sawmill
+koth_viaduct
+koth_king
